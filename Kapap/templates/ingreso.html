@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ingreso Datos</title>
+</head>
+<body>
+    <h1>Ingreso Datos</h1>
+    <h2>Instructores</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ instructores_form.as_p }}
+        <input type="submit" value="Guardar">
+    </form>
+
+    <h2>Cursos</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ cursos_form.as_p }}
+        <input type="submit" value="Guardar">
+    </form>
+
+    <h2>Alumnos</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ alumnos_form.as_p }}
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>

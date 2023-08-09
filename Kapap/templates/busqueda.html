@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicacion de busqueda</title>
+</head>
+<body>
+    <h1>Búsqueda </h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="busqueda" placeholder="Buscar">
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if resultados %}
+        <h2>Resultados</h2>
+        <h3>Instructores</h3>
+        <ul>
+            {% for instructores in resultados.instructores %}
+                <li>{{ instructores.nombre }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Cursos</h3>
+        <ul>
+            {% for cursos in resultados.cursos %}
+                <li>{{ cursos.nombre }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Alumnos</h3>
+        <ul>
+            {% for alumnos in resultados.alumnos %}
+                <li>{{ alumnos.nombre }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
